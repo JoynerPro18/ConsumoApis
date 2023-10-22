@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ConsumoApis.Models.API2>
+
+@{
+    ViewBag.Title = "c";
+}
+
+@{
+    var url = Request.Url.ToString();
+    if (url == "http://localhost:50917/SegundoMetodo/IndexPartial?number_api=API2")
+    {
+        <h1>SEGUNDO METODO</h1>
+        <h2>API2 = jsonplaceholder.typicode.com/posts</h2>
+    }
+    else if (url == "http://localhost:50917/SegundoMetodo/IndexPartial?number_api=API3")
+    {
+        <h1>SEGUNDO METODO</h1>
+        <h2>API3 = jsonplaceholder.typicode.com/comments?postId=1</h2>
+    }
+}
+
+
+
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>userId</th>
+                <th>id</th>
+                <th>title</th>
+                <th>body</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.userId</td>
+                    <td>@item.id</td>
+                    <td>@item.title</td>
+                    <td>@item.body</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No data found.</p>}

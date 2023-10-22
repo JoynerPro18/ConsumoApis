@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ConsumoApis.Models.API1>
+<h1>@ViewBag.Message</h1>
+<h2>API1 = jsonplaceholder.typicode.com/posts/1/comment</h2>
+
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>postId</th>
+                <th>id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>body</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.postId</td>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.email</td>
+                    <td>@item.body</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No data found.</p>
+}
